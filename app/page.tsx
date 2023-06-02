@@ -4,11 +4,7 @@ import Link from "next/link";
 const Home = () => {
   const exercices = ["agify", "ajax", "one"];
   return (
-    <div
-      className={
-        "flex flex-col items-center justify-around h-[100vh] after:-z-10 after:absolute after:w-full after:min-h-[100vh] after:bg-cover after:bg-center after:bg-no-repeat after:bg-fixed after:bg-gradient-to-r after:from-blue-400 after:to-purple-500"
-      }
-    >
+    <div className={"flex flex-col items-center justify-around h-[100vh]"}>
       <header>
         <h1 className={"text-4xl font-bold"}>List of JS exercices</h1>
       </header>

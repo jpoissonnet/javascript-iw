@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import "./css/normalize.css";
 import "./css/style.css";
 
 const Page = () => {
@@ -34,15 +33,15 @@ const Page = () => {
         fetch("http://localhost:3000/data/4-get-json-movies.json")
           .then((response) => response.json())
           .then((data) => {
-            let html = "<ul>";
+            let html = "<ul class='movie-list'>";
             data.forEach(
               (movie: { title: string; duration: number; cover: string }) => {
                 html += `<li>
               <img src="http://localhost:3000/images/${movie.cover}">
-              <p>
-              <strong>${movie.title}</strong> -
-              <em>${movie.duration}</em>
-              </p>
+                <p>
+                  <strong>${movie.title}</strong> -
+                  <em>${movie.duration}</em>
+                </p>
               </li>`;
               }
             );
@@ -60,15 +59,18 @@ const Page = () => {
         <h1>Exercice AJAX</h1>
       </header>
 
-      <main>
+      <main className={"w-1/2"}>
         <section
           id="target"
+          className={
+            "flex flew-wrap border border-white p-4 min-w-[4px] rounded"
+          }
           dangerouslySetInnerHTML={{ __html: result }}
         ></section>
-        <form>
-          <fieldset>
+        <form className={"mt-2"}>
+          <fieldset className={"border border-white p-4 min-w-[4px] rounded"}>
             <legend>Votre choix</legend>
-            <ul>
+            <ul className={"my-3"}>
               <li>
                 <input
                   type="radio"
@@ -116,8 +118,12 @@ const Page = () => {
                   Récupérer les films en JSON
                 </label>
               </li>
-              <li>
-                <button type="button" id="run" onClick={fetchDataAndFill}>
+              <li className={"mt-5"}>
+                <button
+                  type="button"
+                  className={"border border-2 p-3 rounded-md border-white"}
+                  onClick={fetchDataAndFill}
+                >
                   Exécuter
                 </button>
               </li>
