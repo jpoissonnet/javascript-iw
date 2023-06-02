@@ -21,7 +21,7 @@ const Page = () => {
   return (
     <>
       <form>
-        <h1>Quel est l'âge de ton prénom ?</h1>
+        <h1>Quel est l&apos;âge de ton prénom ?</h1>
         <div>
           <input
             type="text"
@@ -41,7 +41,7 @@ const Page = () => {
           </button>
         </div>
         <i>
-          Ces données sont générées avec l'API{" "}
+          Ces données sont générées avec l&apos;API{" "}
           <a href="https://agify.io/" target="_blank">
             Agify
           </a>
@@ -51,7 +51,8 @@ const Page = () => {
 
       <article className={data.age === null ? "hide" : undefined}>
         <h2>
-          D'après Agify, avec le prénom {data.name} vous avez {data.age} ans
+          D&apos;après Agify, avec le prénom {data.name} vous avez {data.age}{" "}
+          ans
         </h2>
         <p>
           Cela a été demandé <strong>{data.count}</strong> fois.
