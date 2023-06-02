@@ -9,12 +9,12 @@ const Page = () => {
   function fetchDataAndFill() {
     switch (dataType) {
       case 1:
-        fetch("http://localhost:3000/data/1-get-html-article.html")
+        fetch("/data/1-get-html-article.html")
           .then((response) => response.text())
           .then((data) => setResult(data));
         break;
       case 2:
-        fetch("http://localhost:3000/data/2-get-contacts-list.json")
+        fetch("/data/2-get-contacts-list.json")
           .then((response) => response.json())
           .then((data) => {
             let html = "<ul>";
@@ -25,12 +25,12 @@ const Page = () => {
           });
         break;
       case 3:
-        fetch("http://localhost:3000/data/3-get-html-movies.html")
+        fetch("/data/3-get-html-movies.html")
           .then((response) => response.text())
           .then((data) => setResult(data));
         break;
       case 4:
-        fetch("http://localhost:3000/data/4-get-json-movies.json")
+        fetch("/data/4-get-json-movies.json")
           .then((response) => response.json())
           .then((data) => {
             let html = "<ul class='movie-list'>";
