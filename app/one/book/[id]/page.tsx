@@ -6,7 +6,9 @@ type Props = { params: { id: string }; searchParams: { name: string } };
 const Page = async ({ params: { id }, searchParams }: Props) => {
   const chapters = await fetch(
     "https://the-one-api.dev/v2/book/" + id + "/chapter"
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .catch((error) => console.log(error));
   return (
     <>
       <header className={"text-center bg-[#000000B2] p-6"}>
