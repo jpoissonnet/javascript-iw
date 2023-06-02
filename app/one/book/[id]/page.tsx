@@ -9,12 +9,12 @@ const Page = async ({ params: { id }, searchParams }: Props) => {
   ).then((response) => response.json());
   return (
     <>
-      <header>
+      <header className={"text-center bg-[#000000B2] p-6"}>
         <h1>{searchParams.name}</h1>
         <h2>Liste des chapitres</h2>
       </header>
       <section>
-        <ol>
+        <ol className={"list-decimal bg-[#000000B2] p-8"}>
           {chapters.docs?.map(
             (chapter: { _id: string; chapterName: string }) => (
               <li key={chapter._id}>{chapter.chapterName}</li>

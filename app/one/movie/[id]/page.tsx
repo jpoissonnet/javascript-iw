@@ -13,7 +13,7 @@ const Page = async ({ params: { id }, searchParams }: Props) => {
     .then((data) => data.docs);
   return (
     <>
-      <header>
+      <header className={"text-center bg-[#000000B2] p-6"}>
         <h1>{searchParams.name}</h1>
         <h2>Liste des citations</h2>
       </header>
