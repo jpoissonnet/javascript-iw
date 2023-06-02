@@ -12,12 +12,12 @@ const Page = async ({ params: { id }, searchParams }: Props) => {
       },
     })
       .then((response) => {
-        console.log(response);
         return response.json();
       })
       .then((data) => data.docs);
   } catch (error) {
     console.log(error);
+    quotes = [{ _id: "1", dialog: "error" }];
   }
   return (
     <>

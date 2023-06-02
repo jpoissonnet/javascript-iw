@@ -11,6 +11,7 @@ const Page = async ({ params: { id }, searchParams }: Props) => {
     ).then((response) => response.json());
   } catch (error) {
     console.log(error);
+    chapters = [{ _id: "1", chapterName: "error" }];
   }
   return (
     <>
