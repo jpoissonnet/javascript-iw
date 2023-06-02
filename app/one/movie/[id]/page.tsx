@@ -11,7 +11,10 @@ const Page = async ({ params: { id }, searchParams }: Props) => {
         Authorization: "Bearer pVMmFVyTQmwApukmrkDl",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
       .then((data) => data.docs);
   } catch (error) {
     console.log(error);
