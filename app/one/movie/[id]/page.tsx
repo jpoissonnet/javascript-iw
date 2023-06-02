@@ -10,6 +10,7 @@ const Page = async ({ params: { id }, searchParams }: Props) => {
     },
   })
     .then((response) => response.json())
+    .catch((error) => console.log(error))
     .then((data) => data.docs);
   return (
     <>
