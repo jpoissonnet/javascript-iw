@@ -4,14 +4,18 @@ import "../../css/style.css";
 type Props = { params: { id: string }; searchParams: { name: string } };
 
 const Page = async ({ params: { id }, searchParams }: Props) => {
-  const quotes = await fetch(`https://the-one-api.dev/v2/movie/${id}/quote`, {
-    headers: {
-      Authorization: "Bearer pVMmFVyTQmwApukmrkDl",
-    },
-  })
-    .then((response) => response.json())
-    .catch((error) => console.log(error))
-    .then((data) => data.docs);
+  let quotes = [];
+  try {
+    quotes = await fetch(`https://the-one-api.dev/v2/movie/${id}/quote`, {
+      headers: {
+        Authorization: "Bearer pVMmFVyTQmwApukmrkDl",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => data.docs);
+  } catch (error) {
+    console.log(error);
+  }
   return (
     <>
       <header className={"text-center bg-[#000000B2] p-6"}>
@@ -19,13 +23,13 @@ const Page = async ({ params: { id }, searchParams }: Props) => {
         <h2>Liste des citations</h2>
       </header>
       <section>
-        {quotes.length > 0 ? (
+        {quotes?.length > 0 ? (
           <ul
             className={
               "max-h-[50vh] overflow-auto p-5 m-5 divide-y-2 backdrop-filter backdrop-blur-xl backdrop-brightness-75 border-2 border-gray-300 rounded-md"
             }
           >
-            {quotes.map((quote: { _id: string; dialog: string }) => (
+            {quotes?.map((quote: { _id: string; dialog: string }) => (
               <li key={quote._id}>{quote.dialog}</li>
             ))}
           </ul>
